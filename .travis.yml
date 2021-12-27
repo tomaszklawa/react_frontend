@@ -5,3 +5,13 @@ before-install:
         - docker build . -t tomaszklawa/react_frontend -f Dockerfile.dev
 script:
         - docker run -e CI=true tomaszklawa/react_frontend npm run test -- --coverage
+
+deploy:
+        provider: elasticbeanstalk
+        region: "us-east-2"
+        app: "react_frontend"
+        env: "Reactfrontend-env"
+        bucket_name: "elasticbeanstalk-us-east-2-548309142200"
+        bucket_path: "react_frontend"
+        on:
+                branch: master
