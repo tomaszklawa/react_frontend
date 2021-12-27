@@ -3,7 +3,9 @@
 #
 
 ########################################
-FROM node:alpine AS builder
+#FROM node:alpine AS builder
+FROM node:alpine
+
 
 WORKDIR '/app'
 COPY package.json .
@@ -17,7 +19,9 @@ RUN npm run build
 #Another container with NGNIX
 #
 ########################################
-FROM nginx AS runphase
+#FROM nginx AS runphase
+FROM nginx
+
 EXPOSE 80
 COPY --from=builder /app/build /usr/share/nginx/html
 
