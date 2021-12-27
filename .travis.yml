@@ -2,6 +2,6 @@ sudo: required
 services:
         - docker
 before:
-        - docker build -t tomaszklawa/react_frontend -f Dockerfile.dev
+        - docker build . -t tomaszklawa/react_frontend -f Dockerfile.dev
 script:
         - docker run -e CI=true tomaszklawa/react_frontend npm run test -- --coverage
