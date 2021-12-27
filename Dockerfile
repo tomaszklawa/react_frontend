@@ -3,7 +3,6 @@
 #
 
 ########################################
-#FROM node:alpine AS builder
 FROM node:alpine
 
 
@@ -19,7 +18,6 @@ RUN npm run build
 #Another container with NGNIX
 #
 ########################################
-#FROM nginx AS runphase
 FROM nginx
 
 EXPOSE 80
