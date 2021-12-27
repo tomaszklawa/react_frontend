@@ -18,5 +18,6 @@ RUN npm run build
 #
 ########################################
 FROM nginx AS runphase
+EXPOSE 80
 COPY --from=builder /app/build /usr/share/nginx/html
 
